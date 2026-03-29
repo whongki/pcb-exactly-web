@@ -1,13 +1,18 @@
-import { ArrowRight, MessageCircle, Award, Users, Factory, Clock } from "lucide-react";
+"use client";
 
-const stats = [
-  { icon: Clock, value: "20+", label: "Years Experience" },
-  { icon: Users, value: "300+", label: "Employees" },
-  { icon: Factory, value: "20,000", label: "sqm Factory" },
-  { icon: Award, value: "ISO", label: "Certified" },
-];
+import { ArrowRight, MessageCircle, Award, Users, Factory, Clock } from "lucide-react";
+import { useI18n } from "@/lib/i18n/context";
 
 export function Hero() {
+  const { t } = useI18n();
+
+  const stats = [
+    { icon: Clock, value: "20+", label: t.hero.stats.years },
+    { icon: Users, value: "300+", label: t.hero.stats.employees },
+    { icon: Factory, value: "20,000", label: t.hero.stats.factory },
+    { icon: Award, value: "ISO", label: t.hero.stats.certified },
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div
@@ -39,20 +44,19 @@ export function Hero() {
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-medium mb-8">
             <Award className="h-4 w-4" />
-            ISO/TS 16949 &middot; UL &middot; ROHS &middot; CQC Certified
+            {t.hero.badge}
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
-            Your Professional{" "}
+            {t.hero.titlePre}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-              PCB Manufacturing
+              {t.hero.titleHighlight}
             </span>{" "}
-            Partner
+            {t.hero.titlePost}
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-blue-100/80 max-w-2xl mx-auto leading-relaxed">
-            From prototype to mass production — delivering high-quality single-sided,
-            double-sided, and multilayer PCBs with 20+ years of expertise.
+            {t.hero.subtitle}
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -60,7 +64,7 @@ export function Hero() {
               href="#contact"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-base font-medium px-8 h-12 transition-colors"
             >
-              Get a Free Quote
+              {t.hero.ctaQuote}
               <ArrowRight className="h-5 w-5" />
             </a>
             <a
@@ -70,7 +74,7 @@ export function Hero() {
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 text-white hover:bg-white/10 text-base font-medium px-8 h-12 transition-colors"
             >
               <MessageCircle className="h-5 w-5" />
-              WhatsApp Us
+              {t.hero.ctaWhatsApp}
             </a>
           </div>
         </div>
@@ -96,7 +100,7 @@ export function Hero() {
           href="#about"
           className="flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors"
         >
-          <span className="text-xs uppercase tracking-widest">Scroll Down</span>
+          <span className="text-xs uppercase tracking-widest">{t.hero.scrollDown}</span>
           <div className="w-6 h-10 rounded-full border-2 border-current flex justify-center pt-2">
             <div className="w-1 h-2 rounded-full bg-current animate-bounce" />
           </div>

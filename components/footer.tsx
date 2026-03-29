@@ -1,24 +1,29 @@
+"use client";
+
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
-
-const quickLinks = [
-  { href: "#about", label: "About Us" },
-  { href: "#products", label: "Products" },
-  { href: "#capabilities", label: "Capabilities" },
-  { href: "#equipment", label: "Equipment" },
-  { href: "#certifications", label: "Certifications" },
-  { href: "#contact", label: "Contact" },
-];
-
-const products = [
-  "Single-Sided PCB",
-  "Double-Sided PCB",
-  "Multilayer PCB",
-  "Aluminum PCB",
-  "LED PCB",
-  "HDI PCB",
-];
+import { useI18n } from "@/lib/i18n/context";
 
 export function Footer() {
+  const { t } = useI18n();
+
+  const quickLinks = [
+    { href: "#about", label: t.nav.about },
+    { href: "#products", label: t.nav.products },
+    { href: "#capabilities", label: t.nav.capabilities },
+    { href: "#equipment", label: t.nav.equipment },
+    { href: "#certifications", label: t.nav.certifications },
+    { href: "#contact", label: t.nav.contact },
+  ];
+
+  const productItems = [
+    t.products.items.singleSided.title,
+    t.products.items.doubleSided.title,
+    t.products.items.multilayer.title,
+    t.products.items.aluminum.title,
+    t.products.items.led.title,
+    t.products.items.hdi.title,
+  ];
+
   return (
     <footer className="bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -28,13 +33,12 @@ export function Footer() {
               <span className="text-blue-400">PCB</span> Exactly
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Anhui Zhenghao Electronics Co., Ltd. Professional PCB manufacturer
-              with 20+ years of experience, serving clients worldwide.
+              {t.footer.desc}
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-white mb-4">{t.footer.quickLinks}</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -50,9 +54,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Products</h4>
+            <h4 className="font-semibold text-white mb-4">{t.footer.products}</h4>
             <ul className="space-y-2">
-              {products.map((p) => (
+              {productItems.map((p) => (
                 <li key={p}>
                   <a
                     href="#products"
@@ -66,7 +70,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Contact Us</h4>
+            <h4 className="font-semibold text-white mb-4">{t.footer.contactUs}</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Mail className="h-4 w-4 text-blue-400 mt-0.5 shrink-0" />
@@ -90,14 +94,12 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="h-4 w-4 text-blue-400 mt-0.5 shrink-0" />
-                <span className="text-slate-400 text-sm">
-                  +86 0563-2772577
-                </span>
+                <span className="text-slate-400 text-sm">+86 0563-2772577</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-blue-400 mt-0.5 shrink-0" />
                 <span className="text-slate-400 text-sm">
-                  No. 777-9, Chang&apos;an Road, Guangde City, Anhui, China
+                  {t.contact.addressValue}
                 </span>
               </li>
             </ul>
@@ -106,15 +108,14 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm">
-            &copy; {new Date().getFullYear()} PCB Exactly (Anhui Zhenghao
-            Electronics Co., Ltd). All rights reserved.
+            &copy; {new Date().getFullYear()} {t.footer.copyright}
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-slate-500 text-sm hover:text-blue-400 transition-colors">
-              Privacy Policy
+              {t.footer.privacy}
             </a>
             <a href="#" className="text-slate-500 text-sm hover:text-blue-400 transition-colors">
-              Terms of Service
+              {t.footer.terms}
             </a>
           </div>
         </div>

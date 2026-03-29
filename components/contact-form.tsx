@@ -14,10 +14,12 @@ import {
 } from "@/components/ui/select";
 import { Mail, Phone, MapPin, MessageCircle, Send, CheckCircle, Loader2 } from "lucide-react";
 import { sendQuote } from "@/app/actions/send-quote";
+import { useI18n } from "@/lib/i18n/context";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const { t } = useI18n();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -36,19 +38,20 @@ export function ContactForm() {
     }
   }
 
+  const f = t.contact.form;
+
   return (
     <section id="contact" className="py-20 lg:py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">
-            Get In Touch
+            {t.contact.tag}
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">
-            Request a Free Quote
+            {t.contact.title}
           </h2>
           <p className="mt-6 text-lg text-slate-600">
-            Tell us about your PCB requirements and we&apos;ll get back to you
-            within 24 hours with a competitive quote.
+            {t.contact.desc}
           </p>
         </div>
 
@@ -56,38 +59,26 @@ export function ContactForm() {
           <div className="lg:col-span-2 space-y-8">
             <div>
               <h3 className="text-xl font-semibold text-slate-900 mb-6">
-                Contact Information
+                {t.contact.infoTitle}
               </h3>
               <div className="space-y-5">
-                <a
-                  href="mailto:pcbexactly@gmail.com"
-                  className="flex items-start gap-4 group"
-                >
+                <a href="mailto:pcbexactly@gmail.com" className="flex items-start gap-4 group">
                   <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors">
                     <Mail className="h-5 w-5 text-blue-600 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <div className="text-sm text-slate-500">Email</div>
-                    <div className="text-slate-900 font-medium">
-                      pcbexactly@gmail.com
-                    </div>
+                    <div className="text-sm text-slate-500">{t.contact.email}</div>
+                    <div className="text-slate-900 font-medium">pcbexactly@gmail.com</div>
                   </div>
                 </a>
 
-                <a
-                  href="https://wa.me/8617621750550"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-4 group"
-                >
+                <a href="https://wa.me/8617621750550" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
                   <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center shrink-0 group-hover:bg-green-600 transition-colors">
                     <MessageCircle className="h-5 w-5 text-green-600 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <div className="text-sm text-slate-500">WhatsApp</div>
-                    <div className="text-slate-900 font-medium">
-                      +86 176 2175 0550
-                    </div>
+                    <div className="text-sm text-slate-500">{t.contact.whatsapp}</div>
+                    <div className="text-slate-900 font-medium">+86 176 2175 0550</div>
                   </div>
                 </a>
 
@@ -96,10 +87,8 @@ export function ContactForm() {
                     <Phone className="h-5 w-5 text-blue-600" />
                   </div>
                   <div>
-                    <div className="text-sm text-slate-500">Phone</div>
-                    <div className="text-slate-900 font-medium">
-                      +86 0563-2772577
-                    </div>
+                    <div className="text-sm text-slate-500">{t.contact.phone}</div>
+                    <div className="text-slate-900 font-medium">+86 0563-2772577</div>
                   </div>
                 </div>
 
@@ -108,10 +97,9 @@ export function ContactForm() {
                     <MapPin className="h-5 w-5 text-blue-600" />
                   </div>
                   <div>
-                    <div className="text-sm text-slate-500">Factory Address</div>
+                    <div className="text-sm text-slate-500">{t.contact.address}</div>
                     <div className="text-slate-900 font-medium">
-                      No. 777-9, Chang&apos;an Road, Economic Development Zone,
-                      Guangde City, Anhui Province, China
+                      {t.contact.addressValue}
                     </div>
                   </div>
                 </div>
@@ -120,14 +108,11 @@ export function ContactForm() {
 
             <div className="p-6 rounded-2xl bg-blue-50 border border-blue-100">
               <h4 className="font-semibold text-slate-900 mb-2">
-                Have Gerber files ready?
+                {t.contact.gerberTitle}
               </h4>
               <p className="text-sm text-slate-600">
-                For faster quoting, send your Gerber files directly to{" "}
-                <a
-                  href="mailto:pcbexactly@gmail.com"
-                  className="text-blue-600 font-medium hover:underline"
-                >
+                {t.contact.gerberDesc}{" "}
+                <a href="mailto:pcbexactly@gmail.com" className="text-blue-600 font-medium hover:underline">
                   pcbexactly@gmail.com
                 </a>
               </p>
@@ -141,107 +126,68 @@ export function ContactForm() {
             >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full Name *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    placeholder="John Smith"
-                    required
-                  />
+                  <Label htmlFor="name">{f.name}</Label>
+                  <Input id="name" name="name" placeholder={f.namePlaceholder} required />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="john@company.com"
-                    required
-                  />
+                  <Label htmlFor="email">{f.email}</Label>
+                  <Input id="email" name="email" type="email" placeholder={f.emailPlaceholder} required />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="company">Company</Label>
-                  <Input
-                    id="company"
-                    name="company"
-                    placeholder="Company Name"
-                  />
+                  <Label htmlFor="company">{f.company}</Label>
+                  <Input id="company" name="company" placeholder={f.companyPlaceholder} />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone / WhatsApp</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    placeholder="+1 234 567 890"
-                  />
+                  <Label htmlFor="phone">{f.phone}</Label>
+                  <Input id="phone" name="phone" placeholder={f.phonePlaceholder} />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-3 gap-4">
                 <div className="space-y-2">
-                  <Label>PCB Type</Label>
+                  <Label>{f.pcbType}</Label>
                   <Select name="pcbType">
                     <SelectTrigger>
-                      <SelectValue placeholder="Select type" />
+                      <SelectValue placeholder={f.pcbTypePlaceholder} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="single-sided">Single-Sided</SelectItem>
-                      <SelectItem value="double-sided">Double-Sided</SelectItem>
-                      <SelectItem value="multilayer">Multilayer</SelectItem>
-                      <SelectItem value="aluminum">Aluminum</SelectItem>
-                      <SelectItem value="led">LED PCB</SelectItem>
-                      <SelectItem value="hdi">HDI</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="single-sided">{f.pcbTypes.singleSided}</SelectItem>
+                      <SelectItem value="double-sided">{f.pcbTypes.doubleSided}</SelectItem>
+                      <SelectItem value="multilayer">{f.pcbTypes.multilayer}</SelectItem>
+                      <SelectItem value="aluminum">{f.pcbTypes.aluminum}</SelectItem>
+                      <SelectItem value="led">{f.pcbTypes.led}</SelectItem>
+                      <SelectItem value="hdi">{f.pcbTypes.hdi}</SelectItem>
+                      <SelectItem value="other">{f.pcbTypes.other}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="layers">Layers</Label>
-                  <Input
-                    id="layers"
-                    name="layers"
-                    placeholder="e.g. 2, 4, 6"
-                  />
+                  <Label htmlFor="layers">{f.layers}</Label>
+                  <Input id="layers" name="layers" placeholder={f.layersPlaceholder} />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="quantity">Quantity</Label>
-                  <Input
-                    id="quantity"
-                    name="quantity"
-                    placeholder="e.g. 100"
-                  />
+                  <Label htmlFor="quantity">{f.quantity}</Label>
+                  <Input id="quantity" name="quantity" placeholder={f.quantityPlaceholder} />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="boardSize">Board Size (mm)</Label>
-                <Input
-                  id="boardSize"
-                  name="boardSize"
-                  placeholder="e.g. 100mm x 80mm"
-                />
+                <Label htmlFor="boardSize">{f.boardSize}</Label>
+                <Input id="boardSize" name="boardSize" placeholder={f.boardSizePlaceholder} />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="requirements">Additional Requirements</Label>
-                <Textarea
-                  id="requirements"
-                  name="requirements"
-                  placeholder="Surface finish, solder mask color, special requirements..."
-                  rows={4}
-                />
+                <Label htmlFor="requirements">{f.requirements}</Label>
+                <Textarea id="requirements" name="requirements" placeholder={f.requirementsPlaceholder} rows={4} />
               </div>
 
               {status === "success" && (
                 <div className="flex items-center gap-2 p-4 bg-green-50 text-green-700 rounded-lg border border-green-200">
                   <CheckCircle className="h-5 w-5 shrink-0" />
-                  <p className="text-sm">
-                    Your quote request has been sent successfully! We&apos;ll
-                    get back to you within 24 hours.
-                  </p>
+                  <p className="text-sm">{f.success}</p>
                 </div>
               )}
 
@@ -259,12 +205,12 @@ export function ContactForm() {
                 {status === "loading" ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    Sending...
+                    {f.sending}
                   </>
                 ) : (
                   <>
                     <Send className="mr-2 h-5 w-5" />
-                    Send Quote Request
+                    {f.submit}
                   </>
                 )}
               </Button>

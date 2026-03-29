@@ -1,46 +1,20 @@
-import {
-  Clock,
-  Shield,
-  Cpu,
-  DollarSign,
-  Truck,
-  Wrench,
-} from "lucide-react";
+"use client";
 
-const advantages = [
-  {
-    icon: Clock,
-    title: "20+ Years Experience",
-    desc: "Two decades of PCB manufacturing expertise, serving clients worldwide since 2001.",
-  },
-  {
-    icon: Shield,
-    title: "Strict Quality Control",
-    desc: "ISO/TS 16949 certified processes with 100% electrical testing and AOI inspection.",
-  },
-  {
-    icon: Cpu,
-    title: "Advanced Equipment",
-    desc: "State-of-the-art CNC drilling, LDI exposure, and automated production lines.",
-  },
-  {
-    icon: DollarSign,
-    title: "Competitive Pricing",
-    desc: "Factory-direct pricing with no middlemen. Best value for prototypes and mass production.",
-  },
-  {
-    icon: Truck,
-    title: "Fast Delivery",
-    desc: "Quick-turn prototypes in 24-48 hours. Reliable on-time delivery for all order sizes.",
-  },
-  {
-    icon: Wrench,
-    title: "One-Stop Service",
-    desc: "From design review to manufacturing and testing — we handle it all under one roof.",
-  },
-];
+import { Clock, Shield, Cpu, DollarSign, Truck, Wrench } from "lucide-react";
+import { useI18n } from "@/lib/i18n/context";
+
+const advantageIcons = [
+  { key: "experience", icon: Clock },
+  { key: "quality", icon: Shield },
+  { key: "equipment", icon: Cpu },
+  { key: "pricing", icon: DollarSign },
+  { key: "delivery", icon: Truck },
+  { key: "service", icon: Wrench },
+] as const;
 
 export function WhyChooseUs() {
+  const { t } = useI18n();
+
   return (
     <section id="why-us" className="py-20 lg:py-28 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
@@ -58,32 +32,34 @@ export function WhyChooseUs() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">
-            Why Choose Us
+            {t.whyUs.tag}
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Your Trusted PCB Partner
+            {t.whyUs.title}
           </h2>
           <p className="mt-6 text-lg text-blue-100/70">
-            We combine decades of experience with cutting-edge technology to
-            deliver PCBs that exceed expectations.
+            {t.whyUs.desc}
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {advantages.map((adv) => (
-            <div
-              key={adv.title}
-              className="group p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-blue-400/30 transition-all duration-300"
-            >
-              <div className="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-colors">
-                <adv.icon className="h-7 w-7 text-blue-400" />
+          {advantageIcons.map((a) => {
+            const adv = t.whyUs.items[a.key];
+            return (
+              <div
+                key={a.key}
+                className="group p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-blue-400/30 transition-all duration-300"
+              >
+                <div className="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-colors">
+                  <a.icon className="h-7 w-7 text-blue-400" />
+                </div>
+                <h3 className="text-xl font-semibold text-white">{adv.title}</h3>
+                <p className="mt-3 text-blue-100/60 leading-relaxed">
+                  {adv.desc}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-white">{adv.title}</h3>
-              <p className="mt-3 text-blue-100/60 leading-relaxed">
-                {adv.desc}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

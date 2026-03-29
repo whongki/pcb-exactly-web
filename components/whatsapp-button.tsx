@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
+import { useI18n } from "@/lib/i18n/context";
 
 const WA_URL =
   "https://wa.me/8617621750550?text=Hi%20I%20would%20like%20to%20understand%20more%20about%20your%20factory%20and%20products";
 
 export function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
+  const { t } = useI18n();
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
@@ -22,7 +24,7 @@ export function WhatsAppButton() {
                 <div className="text-sm font-semibold text-slate-900">
                   PCB Exactly
                 </div>
-                <div className="text-xs text-green-600">Online now</div>
+                <div className="text-xs text-green-600">{t.whatsapp.online}</div>
               </div>
             </div>
             <button
@@ -33,8 +35,7 @@ export function WhatsAppButton() {
             </button>
           </div>
           <div className="bg-slate-50 rounded-lg p-3 text-sm text-slate-600 mb-3">
-            Hi! Need a PCB quote or have questions about our manufacturing
-            capabilities? Chat with us on WhatsApp!
+            {t.whatsapp.message}
           </div>
           <a
             href={WA_URL}
@@ -42,7 +43,7 @@ export function WhatsAppButton() {
             rel="noopener noreferrer"
             className="block w-full text-center bg-green-500 hover:bg-green-600 text-white text-sm font-medium py-2 rounded-lg transition-colors"
           >
-            Start Chat
+            {t.whatsapp.startChat}
           </a>
         </div>
       )}

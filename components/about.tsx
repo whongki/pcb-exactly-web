@@ -2,14 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Building2, Globe, Handshake, Target } from "lucide-react";
+import { useI18n } from "@/lib/i18n/context";
 
-function useCountUp(end: number, duration: number = 2000, startOnView: boolean = true) {
+function useCountUp(end: number, duration: number = 2000) {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!startOnView) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started) setStarted(true);
@@ -18,7 +18,7 @@ function useCountUp(end: number, duration: number = 2000, startOnView: boolean =
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [started, startOnView]);
+  }, [started]);
 
   useEffect(() => {
     if (!started) return;
@@ -39,43 +39,41 @@ function useCountUp(end: number, duration: number = 2000, startOnView: boolean =
   return { count, ref };
 }
 
-const values = [
-  { icon: Handshake, title: "Mutual Benefit", desc: "Win-win partnerships with every client" },
-  { icon: Globe, title: "Cooperation", desc: "Working together across borders" },
-  { icon: Target, title: "Excellence", desc: "Pursuing the highest quality standards" },
-  { icon: Building2, title: "Integrity", desc: "Trust-based business relationships" },
-];
-
 export function About() {
+  const { t } = useI18n();
   const y1 = useCountUp(20, 2000);
   const y2 = useCountUp(300, 2000);
   const y3 = useCountUp(20000, 2000);
   const y4 = useCountUp(99, 2000);
+
+  const values = [
+    { icon: Handshake, title: t.about.values.mutualBenefit, desc: t.about.values.mutualBenefitDesc },
+    { icon: Globe, title: t.about.values.cooperation, desc: t.about.values.cooperationDesc },
+    { icon: Target, title: t.about.values.excellence, desc: t.about.values.excellenceDesc },
+    { icon: Building2, title: t.about.values.integrity, desc: t.about.values.integrityDesc },
+  ];
 
   return (
     <section id="about" className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">
-            About Us
+            {t.about.tag}
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">
-            Building Trust Through Quality
+            {t.about.title}
           </h2>
           <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-            Anhui Zhenghao Electronics Co., Ltd (PCB Exactly) was founded in 2001
-            and has grown into a leading PCB manufacturer with over 20 years of
-            experience. We specialize in double-sided and multilayer circuit boards,
-            serving clients worldwide with advanced technology and strict quality control.
+            {t.about.desc}
           </p>
         </div>
 
         <div ref={y1.ref} className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {[
-            { count: y1.count, suffix: "+", label: "Years Experience", unit: "" },
-            { count: y2.count, suffix: "+", label: "Employees", unit: "" },
-            { count: y3.count, suffix: "", label: "Factory Area", unit: " sqm" },
-            { count: y4.count, suffix: "%", label: "Client Satisfaction", unit: "" },
+            { count: y1.count, suffix: "+", label: t.about.stats.years, unit: "" },
+            { count: y2.count, suffix: "+", label: t.about.stats.employees, unit: "" },
+            { count: y3.count, suffix: "", label: t.about.stats.factory, unit: " sqm" },
+            { count: y4.count, suffix: "%", label: t.about.stats.satisfaction, unit: "" },
           ].map((stat) => (
             <div
               key={stat.label}
