@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
@@ -29,8 +30,17 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-1">
-            <div className="font-bold text-2xl mb-4">
-              <span className="text-blue-400">PCB</span> Exactly
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/logo.png"
+                alt="PCB Exactly Logo"
+                width={48}
+                height={48}
+                className="rounded-full"
+              />
+              <div className="font-bold text-2xl">
+                <span className="text-blue-400">PCB</span> Exactly
+              </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
               {t.footer.desc}

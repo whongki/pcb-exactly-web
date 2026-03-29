@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "PCB Exactly | Professional PCB Manufacturer",
   description:
-    "Anhui Zhenghao Electronics - 20+ years of PCB manufacturing excellence. Single-sided, double-sided, multilayer, aluminum, and HDI PCBs. ISO/TS 16949, UL, ROHS certified. Get a free quote today.",
+    "Anhui Zhenghao Electronics - 15+ years of PCB manufacturing excellence. Single-sided, double-sided, multilayer, aluminum, and HDI PCBs. ISO/TS 16949, UL, ROHS certified. Get a free quote today.",
   keywords: [
     "PCB manufacturer",
     "PCB fabrication",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PCB Exactly | Professional PCB Manufacturer",
     description:
-      "20+ years of PCB manufacturing excellence. Get a free quote today.",
+      "15+ years of PCB manufacturing excellence. Get a free quote today.",
     type: "website",
   },
 };
