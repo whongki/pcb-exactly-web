@@ -1,15 +1,16 @@
 "use client";
 
-import { Clock, Shield, Cpu, DollarSign, Truck, Wrench } from "lucide-react";
+import { Clock, Shield, Cpu, Factory, Truck, Wrench, MapPin } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
 const advantageIcons = [
   { key: "experience", icon: Clock },
   { key: "quality", icon: Shield },
   { key: "equipment", icon: Cpu },
-  { key: "pricing", icon: DollarSign },
+  { key: "pricing", icon: Factory, highlight: true },
   { key: "delivery", icon: Truck },
   { key: "service", icon: Wrench },
+  { key: "factoryVisit", icon: MapPin },
 ] as const;
 
 export function WhyChooseUs() {
@@ -44,14 +45,23 @@ export function WhyChooseUs() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {advantageIcons.map((a) => {
-            const adv = t.whyUs.items[a.key];
+            const adv = t.whyUs.items[a.key as keyof typeof t.whyUs.items];
+            const isHighlight = "highlight" in a && a.highlight;
             return (
               <div
                 key={a.key}
-                className="group p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-blue-400/30 transition-all duration-300"
+                className={`group p-8 rounded-2xl backdrop-blur-sm border transition-all duration-300 ${
+                  isHighlight
+                    ? "bg-emerald-500/10 border-emerald-500/30 hover:bg-emerald-500/20 hover:border-emerald-400/50 ring-1 ring-emerald-500/20"
+                    : "bg-white/5 border-white/10 hover:bg-white/10 hover:border-blue-400/30"
+                }`}
               >
-                <div className="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-colors">
-                  <a.icon className="h-7 w-7 text-blue-400" />
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-colors ${
+                  isHighlight
+                    ? "bg-emerald-500/25 group-hover:bg-emerald-500/35"
+                    : "bg-blue-500/20 group-hover:bg-blue-500/30"
+                }`}>
+                  <a.icon className={`h-7 w-7 ${isHighlight ? "text-emerald-400" : "text-blue-400"}`} />
                 </div>
                 <h3 className="text-xl font-semibold text-white">{adv.title}</h3>
                 <p className="mt-3 text-blue-100/60 leading-relaxed">

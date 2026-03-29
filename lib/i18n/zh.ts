@@ -16,11 +16,12 @@ const zh: Translations = {
   // Hero
   hero: {
     badge: "ISO/TS 16949 · UL · ROHS · CQC 认证",
-    titlePre: "您的专业",
+    factoryBadge: "源头工厂 · 没有中间商 · 工厂直供价格",
+    titlePre: "源头工厂",
     titleHighlight: "PCB制造",
-    titlePost: "合作伙伴",
+    titlePost: "直接对接",
     subtitle:
-      "从样品到量产 — 凭借15余年的专业经验，为您提供高品质的单面板、双面板和多层线路板。",
+      "我们是PCB源头生产工厂 — 非贸易商，非中介。从样品到量产，您直接与我们的工程师和产线对接，没有中间商赚差价。",
     ctaQuote: "免费获取报价",
     ctaWhatsApp: "WhatsApp 咨询",
     scrollDown: "向下滚动",
@@ -36,7 +37,7 @@ const zh: Translations = {
   about: {
     tag: "关于我们",
     title: "以品质铸就信赖",
-    desc: "安徽正好电子有限公司（PCB Exactly）创建于2011年，经过15余年的发展，已成为一家领先的PCB制造商。公司专注于双面板和多层线路板的制造，凭借先进的技术和严格的品质管控，服务全球客户。",
+    desc: "安徽正好电子有限公司（PCB Exactly）是一家创建于2011年的源头生产工厂，拥有20,000+平方米自有厂房、先进设备和300余名员工。与贸易商和中介不同，我们的每一块板都在自己的工厂里生产 — 品质全程可控、价格透明、直接与工程团队沟通。",
     stats: {
       years: "年制造经验",
       employees: "名员工",
@@ -175,8 +176,8 @@ const zh: Translations = {
         desc: "配备先进的CNC钻孔机、LDI曝光机和自动化生产线。",
       },
       pricing: {
-        title: "价格优势",
-        desc: "工厂直供，没有中间商。样品和量产均提供最具竞争力的价格。",
+        title: "源头工厂直供",
+        desc: "我们就是生产商，不是中间商。没有中介加价 — 样品和量产均享受透明的工厂直供价格。",
       },
       delivery: {
         title: "快速交付",
@@ -184,7 +185,11 @@ const zh: Translations = {
       },
       service: {
         title: "一站式服务",
-        desc: "从设计审查到制造和测试 — 我们在一个工厂内完成所有工序。",
+        desc: "从设计审查到制造和测试 — 所有工序在自有工厂内一站式完成，全程品质可控。",
+      },
+      factoryVisit: {
+        title: "欢迎验厂",
+        desc: "诚邀您参观我们位于安徽的20,000+平方米生产基地，实地考察产线、认识团队、验证实力。",
       },
     },
   },
@@ -239,7 +244,7 @@ const zh: Translations = {
 
   // Footer
   footer: {
-    desc: "安徽正好电子有限公司，专业PCB制造商，拥有15余年制造经验，服务全球客户。",
+    desc: "安徽正好电子有限公司，PCB源头生产工厂，自有产线、没有中间商，工厂直供品质与价格。",
     quickLinks: "快速链接",
     products: "产品中心",
     contactUs: "联系我们",

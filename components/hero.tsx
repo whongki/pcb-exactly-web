@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, MessageCircle, Award, Users, Factory, Clock } from "lucide-react";
+import { ArrowRight, MessageCircle, Award, Users, Factory, Clock, ShieldCheck } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
 export function Hero() {
@@ -42,9 +42,15 @@ export function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
         <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-medium mb-8">
-            <Award className="h-4 w-4" />
-            {t.hero.badge}
+          <div className="flex flex-col sm:flex-row items-center gap-3 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-medium">
+              <Award className="h-4 w-4" />
+              {t.hero.badge}
+            </div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-sm font-bold">
+              <Factory className="h-4 w-4" />
+              {t.hero.factoryBadge}
+            </div>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-tight">

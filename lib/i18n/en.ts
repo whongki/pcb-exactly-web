@@ -14,11 +14,12 @@ const en = {
   // Hero
   hero: {
     badge: "ISO/TS 16949 · UL · ROHS · CQC Certified",
-    titlePre: "Your Professional",
-    titleHighlight: "PCB Manufacturing",
-    titlePost: "Partner",
+    factoryBadge: "Source Factory · No Middleman · Factory-Direct Pricing",
+    titlePre: "Direct from",
+    titleHighlight: "Our Own Factory",
+    titlePost: "to You",
     subtitle:
-      "From prototype to mass production — delivering high-quality single-sided, double-sided, and multilayer PCBs with 15+ years of expertise.",
+      "We are a PCB source factory — not a broker, not a trading company. From prototype to mass production, you deal directly with our engineers and production lines. No middleman markup.",
     ctaQuote: "Get a Free Quote",
     ctaWhatsApp: "WhatsApp Us",
     scrollDown: "Scroll Down",
@@ -34,7 +35,7 @@ const en = {
   about: {
     tag: "About Us",
     title: "Building Trust Through Quality",
-    desc: "Anhui Zhenghao Electronics Co., Ltd (PCB Exactly) was founded in 2011 and has grown into a leading PCB manufacturer with over 15 years of experience. We specialize in double-sided and multilayer circuit boards, serving clients worldwide with advanced technology and strict quality control.",
+    desc: "Anhui Zhenghao Electronics Co., Ltd (PCB Exactly) is a source factory founded in 2011 with our own 20,000+ sqm production facility, advanced equipment, and 300+ employees. Unlike trading companies or brokers, we manufacture every board in-house — giving you full quality control, transparent pricing, and direct communication with our engineering team.",
     stats: {
       years: "Years Experience",
       employees: "Employees",
@@ -173,8 +174,8 @@ const en = {
         desc: "State-of-the-art CNC drilling, LDI exposure, and automated production lines.",
       },
       pricing: {
-        title: "Competitive Pricing",
-        desc: "Factory-direct pricing with no middlemen. Best value for prototypes and mass production.",
+        title: "Source Factory Direct",
+        desc: "We are the manufacturer, not a middleman. No broker markups — you get transparent factory-direct pricing for both prototypes and mass production.",
       },
       delivery: {
         title: "Fast Delivery",
@@ -182,7 +183,11 @@ const en = {
       },
       service: {
         title: "One-Stop Service",
-        desc: "From design review to manufacturing and testing — we handle it all under one roof.",
+        desc: "From design review to manufacturing and testing — we handle it all under one roof. Every process happens in our own factory.",
+      },
+      factoryVisit: {
+        title: "Factory Visits Welcome",
+        desc: "We invite you to visit our 20,000+ sqm facility in Anhui, China. See our production lines, meet our team, and verify our capabilities firsthand.",
       },
     },
   },
@@ -240,7 +245,7 @@ const en = {
 
   // Footer
   footer: {
-    desc: "Anhui Zhenghao Electronics Co., Ltd. Professional PCB manufacturer with 15+ years of experience, serving clients worldwide.",
+    desc: "Anhui Zhenghao Electronics Co., Ltd. PCB source factory with our own production lines — no middleman, factory-direct quality and pricing.",
     quickLinks: "Quick Links",
     products: "Products",
     contactUs: "Contact Us",
