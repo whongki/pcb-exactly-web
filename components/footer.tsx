@@ -14,6 +14,7 @@ export function Footer() {
     { href: "#equipment", label: t.nav.equipment },
     { href: "#certifications", label: t.nav.certifications },
     { href: "#contact", label: t.nav.contact },
+    { href: "/blog", label: t.nav.blog },
   ];
 
   const productItems = [

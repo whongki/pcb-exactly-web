@@ -21,6 +21,7 @@ export function Navbar() {
     { href: "#certifications", label: t.nav.certifications },
     { href: "#why-us", label: t.nav.whyUs },
     { href: "#contact", label: t.nav.contact },
+    { href: "/blog", label: t.nav.blog },
   ];
 
   useEffect(() => {

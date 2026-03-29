@@ -8,6 +8,7 @@ const en = {
     certifications: "Certifications",
     whyUs: "Why Us",
     contact: "Contact",
+    blog: "Blog",
     getQuote: "Get a Free Quote",
   },
 

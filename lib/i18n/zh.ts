@@ -10,6 +10,7 @@ const zh: Translations = {
     certifications: "资质认证",
     whyUs: "为什么选择我们",
     contact: "联系我们",
+    blog: "博客",
     getQuote: "免费获取报价",
   },
 
