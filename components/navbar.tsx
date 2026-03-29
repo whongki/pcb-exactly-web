@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, Globe } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
@@ -12,15 +13,18 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { t, locale, toggleLocale } = useI18n();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const solid = !isHome || scrolled;
 
   const navLinks = [
-    { href: "#about", label: t.nav.about },
-    { href: "#products", label: t.nav.products },
-    { href: "#capabilities", label: t.nav.capabilities },
-    { href: "#equipment", label: t.nav.equipment },
-    { href: "#certifications", label: t.nav.certifications },
-    { href: "#why-us", label: t.nav.whyUs },
-    { href: "#contact", label: t.nav.contact },
+    { href: isHome ? "#about" : "/#about", label: t.nav.about },
+    { href: isHome ? "#products" : "/#products", label: t.nav.products },
+    { href: isHome ? "#capabilities" : "/#capabilities", label: t.nav.capabilities },
+    { href: isHome ? "#equipment" : "/#equipment", label: t.nav.equipment },
+    { href: isHome ? "#certifications" : "/#certifications", label: t.nav.certifications },
+    { href: isHome ? "#why-us" : "/#why-us", label: t.nav.whyUs },
+    { href: isHome ? "#contact" : "/#contact", label: t.nav.contact },
     { href: "/blog", label: t.nav.blog },
   ];
 
@@ -33,14 +37,14 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        solid
           ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-border"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <a href="#" className="flex items-center gap-2 shrink-0">
+          <a href={isHome ? "#" : "/"} className="flex items-center gap-2 shrink-0">
             <Image
               src="/logo.png"
               alt="PCB Exactly Logo"
@@ -50,7 +54,7 @@ export function Navbar() {
             />
             <div
               className={`font-bold text-xl lg:text-2xl tracking-tight transition-colors ${
-                scrolled ? "text-primary" : "text-white"
+                solid ? "text-primary" : "text-white"
               }`}
             >
               <span className="text-blue-500">PCB</span> Exactly
@@ -63,7 +67,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`px-3 py-2 text-sm font-medium rounded-md transition-colors hover:bg-white/10 ${
-                  scrolled
+                  solid
                     ? "text-foreground/80 hover:text-primary hover:bg-primary/5"
                     : "text-white/90 hover:text-white"
                 }`}
@@ -77,7 +81,7 @@ export function Navbar() {
             <button
               onClick={toggleLocale}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                scrolled
+                solid
                   ? "text-foreground/70 hover:text-primary hover:bg-primary/5"
                   : "text-white/80 hover:text-white hover:bg-white/10"
               }`}
@@ -102,7 +106,7 @@ export function Navbar() {
                 render={
                   <button
                     className={`lg:hidden p-2 rounded-md ${
-                      scrolled ? "text-foreground" : "text-white"
+                      solid ? "text-foreground" : "text-white"
                     }`}
                     aria-label="Open menu"
                   />
