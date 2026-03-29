@@ -89,7 +89,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-slate-400 text-sm hover:text-green-400 transition-colors"
                 >
-                  +86 176 2175 0550
+                  {t.contact.whatsappLink}
                 </a>
               </li>
               <li className="flex items-start gap-3">

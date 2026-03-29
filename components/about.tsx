@@ -4,47 +4,51 @@ import { useEffect, useRef, useState } from "react";
 import { Building2, Globe, Handshake, Target } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
-function useCountUp(end: number, duration: number = 2000) {
+function useCountUp(end: number, duration: number, started: boolean) {
   const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started) setStarted(true);
-      },
-      { threshold: 0.3 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [started]);
 
   useEffect(() => {
     if (!started) return;
-    let start = 0;
+    let current = 0;
     const step = end / (duration / 16);
     const timer = setInterval(() => {
-      start += step;
-      if (start >= end) {
+      current += step;
+      if (current >= end) {
         setCount(end);
         clearInterval(timer);
       } else {
-        setCount(Math.floor(start));
+        setCount(Math.floor(current));
       }
     }, 16);
     return () => clearInterval(timer);
   }, [started, end, duration]);
 
-  return { count, ref };
+  return count;
 }
 
 export function About() {
   const { t } = useI18n();
-  const y1 = useCountUp(20, 2000);
-  const y2 = useCountUp(300, 2000);
-  const y3 = useCountUp(20000, 2000);
-  const y4 = useCountUp(99, 2000);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const c1 = useCountUp(15, 2000, started);
+  const c2 = useCountUp(300, 2000, started);
+  const c3 = useCountUp(20000, 2000, started);
+  const c4 = useCountUp(99, 2000, started);
 
   const values = [
     { icon: Handshake, title: t.about.values.mutualBenefit, desc: t.about.values.mutualBenefitDesc },
@@ -68,12 +72,12 @@ export function About() {
           </p>
         </div>
 
-        <div ref={y1.ref} className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div ref={containerRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {[
-            { count: y1.count, suffix: "+", label: t.about.stats.years, unit: "" },
-            { count: y2.count, suffix: "+", label: t.about.stats.employees, unit: "" },
-            { count: y3.count, suffix: "", label: t.about.stats.factory, unit: " sqm" },
-            { count: y4.count, suffix: "%", label: t.about.stats.satisfaction, unit: "" },
+            { count: c1, suffix: "+", label: t.about.stats.years, unit: "" },
+            { count: c2, suffix: "+", label: t.about.stats.employees, unit: "" },
+            { count: c3, suffix: "", label: t.about.stats.factory, unit: " sqm" },
+            { count: c4, suffix: "%", label: t.about.stats.satisfaction, unit: "" },
           ].map((stat) => (
             <div
               key={stat.label}

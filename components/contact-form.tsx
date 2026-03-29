@@ -78,7 +78,7 @@ export function ContactForm() {
                   </div>
                   <div>
                     <div className="text-sm text-slate-500">{t.contact.whatsapp}</div>
-                    <div className="text-slate-900 font-medium">+86 176 2175 0550</div>
+                    <div className="text-slate-900 font-medium">{t.contact.whatsappLink}</div>
                   </div>
                 </a>
 

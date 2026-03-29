@@ -20,7 +20,7 @@ const zh: Translations = {
     titleHighlight: "PCB制造",
     titlePost: "合作伙伴",
     subtitle:
-      "从样品到量产 — 凭借20余年的专业经验，为您提供高品质的单面板、双面板和多层线路板。",
+      "从样品到量产 — 凭借15余年的专业经验，为您提供高品质的单面板、双面板和多层线路板。",
     ctaQuote: "免费获取报价",
     ctaWhatsApp: "WhatsApp 咨询",
     scrollDown: "向下滚动",
@@ -36,7 +36,7 @@ const zh: Translations = {
   about: {
     tag: "关于我们",
     title: "以品质铸就信赖",
-    desc: "安徽正好电子有限公司（PCB Exactly）创建于2001年，经过20余年的发展，已成为一家领先的PCB制造商。公司专注于双面板和多层线路板的制造，凭借先进的技术和严格的品质管控，服务全球客户。",
+    desc: "安徽正好电子有限公司（PCB Exactly）创建于2011年，经过15余年的发展，已成为一家领先的PCB制造商。公司专注于双面板和多层线路板的制造，凭借先进的技术和严格的品质管控，服务全球客户。",
     stats: {
       years: "年制造经验",
       employees: "名员工",
@@ -163,8 +163,8 @@ const zh: Translations = {
     desc: "我们将数十年的经验与尖端技术相结合，生产超越期望的PCB产品。",
     items: {
       experience: {
-        title: "20+年制造经验",
-        desc: "自2001年以来，二十余年PCB制造专业经验，服务全球客户。",
+        title: "15+年制造经验",
+        desc: "自2011年以来，十五余年PCB制造专业经验，服务全球客户。",
       },
       quality: {
         title: "严格品质管控",
@@ -197,6 +197,7 @@ const zh: Translations = {
     infoTitle: "联系方式",
     email: "邮箱",
     whatsapp: "WhatsApp",
+    whatsappLink: "WhatsApp 在线咨询",
     phone: "电话",
     address: "工厂地址",
     addressValue: "安徽省广德市经济开发区长安路777-9号",
@@ -238,7 +239,7 @@ const zh: Translations = {
 
   // Footer
   footer: {
-    desc: "安徽正好电子有限公司，专业PCB制造商，拥有20余年制造经验，服务全球客户。",
+    desc: "安徽正好电子有限公司，专业PCB制造商，拥有15余年制造经验，服务全球客户。",
     quickLinks: "快速链接",
     products: "产品中心",
     contactUs: "联系我们",

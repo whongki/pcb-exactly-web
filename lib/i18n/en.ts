@@ -18,7 +18,7 @@ const en = {
     titleHighlight: "PCB Manufacturing",
     titlePost: "Partner",
     subtitle:
-      "From prototype to mass production — delivering high-quality single-sided, double-sided, and multilayer PCBs with 20+ years of expertise.",
+      "From prototype to mass production — delivering high-quality single-sided, double-sided, and multilayer PCBs with 15+ years of expertise.",
     ctaQuote: "Get a Free Quote",
     ctaWhatsApp: "WhatsApp Us",
     scrollDown: "Scroll Down",
@@ -34,7 +34,7 @@ const en = {
   about: {
     tag: "About Us",
     title: "Building Trust Through Quality",
-    desc: "Anhui Zhenghao Electronics Co., Ltd (PCB Exactly) was founded in 2001 and has grown into a leading PCB manufacturer with over 20 years of experience. We specialize in double-sided and multilayer circuit boards, serving clients worldwide with advanced technology and strict quality control.",
+    desc: "Anhui Zhenghao Electronics Co., Ltd (PCB Exactly) was founded in 2011 and has grown into a leading PCB manufacturer with over 15 years of experience. We specialize in double-sided and multilayer circuit boards, serving clients worldwide with advanced technology and strict quality control.",
     stats: {
       years: "Years Experience",
       employees: "Employees",
@@ -158,11 +158,11 @@ const en = {
   whyUs: {
     tag: "Why Choose Us",
     title: "Your Trusted PCB Partner",
-    desc: "We combine decades of experience with cutting-edge technology to deliver PCBs that exceed expectations.",
+    desc: "We combine 15+ years of experience with cutting-edge technology to deliver PCBs that exceed expectations.",
     items: {
       experience: {
-        title: "20+ Years Experience",
-        desc: "Two decades of PCB manufacturing expertise, serving clients worldwide since 2001.",
+        title: "15+ Years Experience",
+        desc: "Over 15 years of PCB manufacturing expertise, serving clients worldwide since 2011.",
       },
       quality: {
         title: "Strict Quality Control",
@@ -195,6 +195,7 @@ const en = {
     infoTitle: "Contact Information",
     email: "Email",
     whatsapp: "WhatsApp",
+    whatsappLink: "Chat on WhatsApp",
     phone: "Phone",
     address: "Factory Address",
     addressValue:
@@ -239,7 +240,7 @@ const en = {
 
   // Footer
   footer: {
-    desc: "Anhui Zhenghao Electronics Co., Ltd. Professional PCB manufacturer with 20+ years of experience, serving clients worldwide.",
+    desc: "Anhui Zhenghao Electronics Co., Ltd. Professional PCB manufacturer with 15+ years of experience, serving clients worldwide.",
     quickLinks: "Quick Links",
     products: "Products",
     contactUs: "Contact Us",

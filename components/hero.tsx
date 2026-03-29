@@ -7,7 +7,7 @@ export function Hero() {
   const { t } = useI18n();
 
   const stats = [
-    { icon: Clock, value: "20+", label: t.hero.stats.years },
+    { icon: Clock, value: "15+", label: t.hero.stats.years },
     { icon: Users, value: "300+", label: t.hero.stats.employees },
     { icon: Factory, value: "20,000", label: t.hero.stats.factory },
     { icon: Award, value: "ISO", label: t.hero.stats.certified },
